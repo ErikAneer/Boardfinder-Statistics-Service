@@ -30,7 +30,7 @@ public class BoardDisplayedService {
 
     //Get top 3 searched boards List<Long, Integer> id / count
     public List<Long> getTop3DisplayedBoards() {
-        Pageable topThree = new PageRequest(0, 3);
+        Pageable topThree = PageRequest.of(0, 3);
         return boardDisplayedRepository.findTop3ByOrderByDisplayedBoardId(topThree);
     }    
     
