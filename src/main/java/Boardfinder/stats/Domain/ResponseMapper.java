@@ -19,7 +19,7 @@ public class ResponseMapper {
         long totalCount = stats.stream().mapToLong(DbResponse2Columns::getCount).sum();
         responseObject.setTotalCount(totalCount);
         stats.forEach(s -> {
-            responseObject.getStatsSpecification().add(new StatsResponseStringDto(s.getSpec(), s.getCount(), (double) s.getCount() / totalCount * 100));
+            responseObject.getStatsSpecification().add(new StatsResponseDto(s.getSpec(), s.getCount(), (double) s.getCount() / totalCount * 100));
         });
         return responseObject;
     }

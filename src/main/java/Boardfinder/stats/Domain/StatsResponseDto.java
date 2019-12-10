@@ -12,13 +12,13 @@ import java.io.Serializable;
  * @author Erik
  */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
-public class StatsResponseStringDto implements Serializable{
+public class StatsResponseDto implements Serializable{
         
         Object spec;
         Long count;
         double percentage;
 
-    public StatsResponseStringDto(Object spec, Long count, double percentage) {
+    public StatsResponseDto(Object spec, Long count, double percentage) {
         this.spec = spec;
         this.count = count;
         this.percentage = percentage;
