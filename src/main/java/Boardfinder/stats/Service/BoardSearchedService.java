@@ -1,12 +1,7 @@
 package Boardfinder.stats.Service;
 
 import Boardfinder.stats.Domain.BoardSearched;
-import Boardfinder.stats.Domain.DbResponse2ColumnsLongString;
-import Boardfinder.stats.Domain.DbResponse2ColumnLongDouble;
-import Boardfinder.stats.Domain.statsResponseDoubleDto;
-import Boardfinder.stats.Domain.statsResponseDto;
-import Boardfinder.stats.Domain.statsResponseStringDto;
-import Boardfinder.stats.Event.BoardSearchedEvent;
+import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Repository.BoardSearchedRepository;
 import Boardfinder.stats.Repository.CustomBoardSearchedQueryRepository;
 import Boardfinder.stats.Domain.ResponseMapper;
@@ -46,32 +41,32 @@ public class BoardSearchedService {
         return boardSearchedRepository.save(search);
     }
 
-    public statsResponseDto getSearchedFlexAndTheirCounts() {
-        return responseMapper.createResponseDtoWithStringSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameString("flex"));
+    public StatsResponseDtoForClient getSearchedFlexAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("flex"));
     }
 
-    public statsResponseDto getSearchedBendsAndTheirCounts() {
-        return responseMapper.createResponseDtoWithStringSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameString("bend"));
+    public StatsResponseDtoForClient getSearchedBendsAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("bend"));
     }
 
-    public statsResponseDto getSearchedShapesAndTheirCounts() {
-        return responseMapper.createResponseDtoWithStringSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameString("shape"));
+    public StatsResponseDtoForClient getSearchedShapesAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("shape"));
     }
 
-    public statsResponseDto getSearchedShoeSizesAndTheirCounts() {
-        return responseMapper.createResponseDtoWithDoubleSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameDouble("shoeSize"));
+    public StatsResponseDtoForClient getSearchedShoeSizesAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("shoeSize"));
     }
     
-    public statsResponseDto getSearchedGendersAndTheirCounts() {
-        return responseMapper.createResponseDtoWithStringSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameString("gender"));
+    public StatsResponseDtoForClient getSearchedGendersAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("gender"));
     }
     
-     public statsResponseDto getSearchedRiderLevelsAndTheirCounts() {
-        return responseMapper.createResponseDtoWithStringSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameString("riderLevel"));
+     public StatsResponseDtoForClient getSearchedRiderLevelsAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("riderLevel"));
     }
      
-     public statsResponseDto getSearchedRiderTerrainsAndTheirCounts() {
-        return responseMapper.createResponseDtoWithStringSpec(customBoardSearchedRepository.getBoardSearchedStatsByColumnNameString("terrain"));
+     public StatsResponseDtoForClient getSearchedRiderTerrainsAndTheirCounts() {
+        return responseMapper.createResponseDtoFromDBDto(customBoardSearchedRepository.getBoardSearchedStatsByColumnName("terrain"));
     }
 
     
