@@ -2,6 +2,7 @@
 package Boardfinder.stats.Controller;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
+import Boardfinder.stats.Domain.statsResponseDto;
 import Boardfinder.stats.Service.BoardDisplayedService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class BoardDisplayedController {
         this.boardDisplayedService = boardDisplayedService;
     }
 
-    @GetMapping("/totalsearches")
+    @GetMapping("/totalnumber")
     public Long getTotalNumberOfBoardSearches() {
         return boardDisplayedService.getTotalNumberOfDisplayedBoards();
     }
     
-    @GetMapping("/top3displayedboards")
-    public List<Long> getTop3DisplayedBoards() {
-           return boardDisplayedService.getTop3DisplayedBoards();
+        @GetMapping("/top10displayedboards")
+    public statsResponseDto getTop10DisplayedBoards() {
+           return boardDisplayedService.getTop10DisplayedBoards();
     }
 }
