@@ -1,7 +1,10 @@
 package Boardfinder.stats.Service;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
+import Boardfinder.stats.Domain.DbResponse2ColumnLongLong;
+import Boardfinder.stats.Domain.statsResponseDto;
 import Boardfinder.stats.Repository.BoardDisplayedRepository;
+import Boardfinder.stats.Domain.ResponseMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -16,22 +19,23 @@ import org.springframework.stereotype.Service;
 public class BoardDisplayedService {
 
     private BoardDisplayedRepository boardDisplayedRepository;
+    
+     private ResponseMapper responseMapper;
 
     @Autowired
-    public BoardDisplayedService(BoardDisplayedRepository boardDisplayedRepository) {
+    public BoardDisplayedService(BoardDisplayedRepository boardDisplayedRepository,  ResponseMapper responseMapper) {
         this.boardDisplayedRepository = boardDisplayedRepository;
+        this.responseMapper = responseMapper;
     }
     
-   
 
     public Long getTotalNumberOfDisplayedBoards() {
         return boardDisplayedRepository.count();
     }
 
-    //Get top 3 searched boards List<Long, Integer> id / count
-    public List<Long> getTop3DisplayedBoards() {
-        Pageable topThree = PageRequest.of(0, 3);
-        return boardDisplayedRepository.findTop3ByOrderByDisplayedBoardId(topThree);
+    public statsResponseDto getTop10DisplayedBoards() {
+        Pageable topTen = PageRequest.of(0, 10);
+        return responseMapper.createResponseDtoWithLongSpec(boardDisplayedRepository.findTop10ByOrderByDisplayedBoardId(topTen));
     }    
     
     public BoardDisplayed save(BoardDisplayed dipslayedBoard) {
@@ -39,3 +43,4 @@ public class BoardDisplayedService {
     }
 
 }
+
