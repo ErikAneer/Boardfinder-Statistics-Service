@@ -3,8 +3,8 @@
  */
 package Boardfinder.stats.Repository;
 
-import Boardfinder.stats.Domain.DbResponse2ColumnsLongString;
-import Boardfinder.stats.Domain.DbResponse2ColumnLongDouble;
+import Boardfinder.stats.Domain.DbResponse2Columns;
+import java.text.MessageFormat;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,38 +21,12 @@ public class CustomBoardSearchedQueryRepository { //implements CustomBoardSearch
     @PersistenceContext
    private EntityManager em;
     
-    public List<DbResponse2ColumnsLongString> getBoardSearchedStatsByColumnNameString(String column) {
-      TypedQuery<DbResponse2ColumnsLongString> query = em.createQuery(queryBuilderWithStringColumn(column), DbResponse2ColumnsLongString.class);
+    public List<DbResponse2Columns> getBoardSearchedStatsByColumnName(String column) {
+      TypedQuery<DbResponse2Columns> query = em.createQuery(queryBuilder("DbResponse2Columns",column), DbResponse2Columns.class);
       return query.getResultList();
-
     }
     
-    public List<DbResponse2ColumnLongDouble> getBoardSearchedStatsByColumnNameDouble(String column) {
-      TypedQuery<DbResponse2ColumnLongDouble> query = em.createQuery(queryBuilderWithDoubleColumn(column), DbResponse2ColumnLongDouble.class);
-      return query.getResultList();
-
+    private String queryBuilder(String className, String column) {
+      return MessageFormat.format("SELECT new Boardfinder.stats.Domain.{0}(b.{1}, count(b.{1})) FROM BoardSearched b GROUP BY b.{1} ORDER BY count(*) DESC", className, column);
     }
-    
-    private String queryBuilderWithStringColumn(String column) {
-      StringBuilder sb = new StringBuilder("SELECT new Boardfinder.stats.Domain.DbResponse2ColumnsLongString(b.");
-      sb.append(column);
-      sb.append(", count(b.");
-      sb.append(column);
-      sb.append(")) FROM BoardSearched b GROUP BY b.");
-      sb.append(column);
-      sb.append(" ORDER BY count(*) DESC");
-      return sb.toString();
-    }
-    
-    private String queryBuilderWithDoubleColumn(String column) {
-      StringBuilder sb = new StringBuilder("SELECT new Boardfinder.stats.Domain.DbResponse2ColumnLongDouble(b.");
-      sb.append(column);
-      sb.append(", count(b.");
-      sb.append(column);
-      sb.append(")) FROM BoardSearched b GROUP BY b.");
-      sb.append(column);
-      sb.append(" ORDER BY count(*) DESC");
-      return sb.toString();
-    }
-    
 }

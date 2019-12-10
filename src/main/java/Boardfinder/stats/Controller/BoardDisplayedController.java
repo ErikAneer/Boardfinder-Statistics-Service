@@ -2,7 +2,7 @@
 package Boardfinder.stats.Controller;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
-import Boardfinder.stats.Domain.statsResponseDto;
+import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Service.BoardDisplayedService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class BoardDisplayedController {
     }
     
         @GetMapping("/top10displayedboards")
-    public statsResponseDto getTop10DisplayedBoards() {
+    public StatsResponseDtoForClient getTop10DisplayedBoards() {
            return boardDisplayedService.getTop10DisplayedBoards();
     }
 }

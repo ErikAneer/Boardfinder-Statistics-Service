@@ -12,17 +12,17 @@ import lombok.Value;
  * @author Erik
  */
 
-public class statsResponseDto {
+public class StatsResponseDtoForClient {
     
         Long totalCount;
         List<Object> statsSpecification = new ArrayList();
 
-    public statsResponseDto(Long totalCount, List<Object> statsSpecification) {
+    public StatsResponseDtoForClient(Long totalCount, List<Object> statsSpecification) {
         this.totalCount = totalCount;
         this.statsSpecification = statsSpecification;
     }
 
-    public statsResponseDto() {
+    public StatsResponseDtoForClient() {
     }
 
     public Long getTotalCount() {

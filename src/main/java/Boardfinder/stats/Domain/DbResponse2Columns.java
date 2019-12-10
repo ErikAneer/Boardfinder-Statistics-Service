@@ -10,9 +10,9 @@ import lombok.Value;
  * @author Erik
  */
 @Value
-public class DbResponse2ColumnsLongString {
+public class DbResponse2Columns {
     
-  String spec;
+  Object spec;
   Long count;
 
 

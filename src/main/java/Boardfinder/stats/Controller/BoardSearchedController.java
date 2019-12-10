@@ -1,8 +1,8 @@
 package Boardfinder.stats.Controller;
 
 import Boardfinder.stats.Domain.BoardSearched;
-import Boardfinder.stats.Domain.DbResponse2ColumnsLongString;
-import Boardfinder.stats.Domain.statsResponseDto;
+import Boardfinder.stats.Domain.DbResponse2Columns;
+import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Service.BoardSearchedService;
 
 import java.util.List;
@@ -42,37 +42,37 @@ public class BoardSearchedController {
     }
     
     @GetMapping("/flex")
-    public statsResponseDto getFlexStats() {
+    public StatsResponseDtoForClient getFlexStats() {
         return boardSearchedService.getSearchedFlexAndTheirCounts();
     }
     
     @GetMapping("/bends")
-    public statsResponseDto getBendStats() {
+    public StatsResponseDtoForClient getBendStats() {
         return boardSearchedService.getSearchedBendsAndTheirCounts();
     }
     
     @GetMapping("/shapes")
-    public statsResponseDto getShapeStats() {
+    public StatsResponseDtoForClient getShapeStats() {
         return boardSearchedService.getSearchedShapesAndTheirCounts();
     }
     
     @GetMapping("/shoesizes")
-    public statsResponseDto getShoeSizeStats() {
+    public StatsResponseDtoForClient getShoeSizeStats() {
         return boardSearchedService.getSearchedShoeSizesAndTheirCounts();
     }
     
     @GetMapping("/gender")
-    public statsResponseDto getGenderStats() {
+    public StatsResponseDtoForClient getGenderStats() {
         return boardSearchedService.getSearchedGendersAndTheirCounts();
     }
     
     @GetMapping("/riderlevel")
-    public statsResponseDto getRiderLevelStats() {
+    public StatsResponseDtoForClient getRiderLevelStats() {
         return boardSearchedService.getSearchedRiderLevelsAndTheirCounts();
     }
     
     @GetMapping("/terrain")
-    public statsResponseDto getTerrainStats() {
+    public StatsResponseDtoForClient getTerrainStats() {
         return boardSearchedService.getSearchedRiderTerrainsAndTheirCounts();
     }
 }
