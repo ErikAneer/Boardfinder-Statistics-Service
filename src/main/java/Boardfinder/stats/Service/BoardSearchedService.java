@@ -4,7 +4,7 @@ import Boardfinder.stats.Domain.BoardSearched;
 import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Repository.BoardSearchedRepository;
 import Boardfinder.stats.Repository.CustomBoardSearchedQueryRepository;
-import Boardfinder.stats.Domain.ResponseMapper;
+import Boardfinder.stats.Util.ResponseMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

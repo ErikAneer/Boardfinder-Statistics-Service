@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
 public interface BoardDisplayedRepository extends JpaRepository<BoardDisplayed, Long>{
 
     @Query("SELECT new Boardfinder.stats.Domain.DbResponse2Columns(b.displayedBoardId, count(b.displayedBoardId)) FROM BoardDisplayed b GROUP BY b.displayedBoardId ORDER BY count(*) DESC")
-    List<DbResponse2Columns>findTop10ByOrderByDisplayedBoardId(Pageable pageable);
+    List<DbResponse2Columns>findTopXByOrderByDisplayedBoardId(Pageable pageable);
     
     long countByDisplayedBoardId(long id);
 }
