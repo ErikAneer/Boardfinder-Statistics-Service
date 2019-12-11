@@ -1,8 +1,11 @@
 /*
 
  */
-package Boardfinder.stats.Domain;
+package Boardfinder.stats.Util;
 
+import Boardfinder.stats.Domain.DbResponse2Columns;
+import Boardfinder.stats.Domain.StatsResponseDto;
+import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
