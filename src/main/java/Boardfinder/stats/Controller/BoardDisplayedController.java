@@ -37,7 +37,7 @@ public class BoardDisplayedController {
     }
     
         @GetMapping("/top3displayedboards")
-    public StatsResponseDtoForClient getTop3DisplayedBoards() {
-           return boardDisplayedService.getTopXDisplayedBoards(3);
+    public List<Long> getTop3DisplayedBoards() {
+           return boardDisplayedService.getTopXDisplayedBoardsAsIdList(3);
     }
 }
