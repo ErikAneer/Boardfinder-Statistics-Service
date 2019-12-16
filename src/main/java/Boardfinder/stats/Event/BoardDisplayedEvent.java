@@ -14,9 +14,17 @@ import lombok.*;
 @EqualsAndHashCode
 public class BoardDisplayedEvent implements Serializable {
  
-    private final long displayedBoardId;
+    private final long displayedBoardId;   
+    private final String model;
+    private final String brand;
+    private final String gender;
+    private final String bend;
 
     public BoardDisplayedEvent() {
         this.displayedBoardId = 0;
+        this.gender = "";
+        this.brand = "";
+        this.bend = "";
+        this.model = "";
     }
 }
