@@ -1,6 +1,7 @@
 package Boardfinder.stats.Service;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
+import Boardfinder.stats.Domain.DBResponseDisplayedBoard5Columns;
 import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Repository.BoardDisplayedRepository;
 import Boardfinder.stats.Util.ResponseMapper;
@@ -40,6 +41,10 @@ public class BoardDisplayedService {
     public List<Long> getTopXDisplayedBoardsAsIdList(int limit) {
         Pageable topTen = PageRequest.of(0, limit);
         return responseMapper.mapStatsResponseDtoForClientToList(boardDisplayedRepository.findTopXByOrderByDisplayedBoardId(topTen));
+    }
+    
+    public  StatsResponseDtoForClient getAllDisplayedBoardsAsList() {
+    return responseMapper.createResponseDtoFromDB5ColumnsDto(boardDisplayedRepository.findAllByDisplayedBoards());
     }
     
     public BoardDisplayed save(BoardDisplayed dipslayedBoard) {
