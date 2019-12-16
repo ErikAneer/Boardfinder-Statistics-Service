@@ -30,8 +30,7 @@ public class BoardDisplayedEventConsumer {
         log.info("Received sent board Id: {}");
 
         try {
-            boardDisplayedService.save(new BoardDisplayed(event.getDisplayedBoardId()));
-
+            boardDisplayedService.save(new BoardDisplayed(event.getDisplayedBoardId(), event.getModel(), event.getBrand(), event.getGender(), event.getBend()));
         } catch (final Exception e) {
             log.error("Error when trying to processe the save of the search.");
             throw new AmqpRejectAndDontRequeueException(e);

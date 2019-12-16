@@ -2,6 +2,7 @@
 package Boardfinder.stats.Controller;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
+import Boardfinder.stats.Domain.DBResponseDisplayedBoard5Columns;
 import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Service.BoardDisplayedService;
 import java.util.List;
@@ -39,5 +40,10 @@ public class BoardDisplayedController {
         @GetMapping("/top3displayedboards")
     public List<Long> getTop3DisplayedBoards() {
            return boardDisplayedService.getTopXDisplayedBoardsAsIdList(3);
+    }
+    
+    @GetMapping("/alldisplayedboards")
+    public  StatsResponseDtoForClient getAllDisplayedBoards() {
+           return boardDisplayedService.getAllDisplayedBoardsAsList();
     }
 }
