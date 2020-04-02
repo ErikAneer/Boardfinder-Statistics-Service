@@ -1,6 +1,4 @@
-/*
 
- */
 package Boardfinder.stats.Domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -8,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import java.io.Serializable;
 
 /**
- *
+ * Generic data transfer object class used to store stats data to be used in return object(s) in controller class with specification, count and percentage. 
  * @author Erik
  */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

@@ -1,18 +1,14 @@
 package Boardfinder.stats.Event;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
-import Boardfinder.stats.Domain.BoardSearched;
-import Boardfinder.stats.Event.BoardSearchedEvent;
 import Boardfinder.stats.Service.BoardDisplayedService;
 import lombok.extern.slf4j.Slf4j;
-import Boardfinder.stats.Service.BoardSearchedService;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
 
 /**
- *
+ * Event consumer class that receives events via a RabbitMQ queue and saves the received events to the database. 
  * @author Erik
  */
 @Slf4j
@@ -25,6 +21,11 @@ public class BoardDisplayedEventConsumer {
         this.boardDisplayedService = boardDisplayedService;
     }
 
+    /** 
+     *  Listens to the RabbitMQ queue to receive events from the Boardfinder service containing information about boards displayed.
+     *  Calls the boardDisplayedService to store the incoming event to the database. 
+     * @param BoardDisplayedEvent
+     */
     @RabbitListener(queues = "${boarddisplayed.queue}")
     void handleBoardSearched(final BoardDisplayedEvent event) {
         log.info("Received sent board Id: {}");

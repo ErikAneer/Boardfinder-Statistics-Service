@@ -1,6 +1,4 @@
-/*
-    Object to store in database with info about the board shown in Boardfinder.
- */
+
 package Boardfinder.stats.Domain;
 
 import java.io.Serializable;
@@ -14,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- *
+ * Entity class  to store in database with info about the board shown in Boardfinder.
  * @author Erik
  */
 
@@ -45,6 +43,4 @@ public class BoardDisplayed implements Serializable {
         this.gender = gender;
         this.bend = bend;
     }
-    
-
 }

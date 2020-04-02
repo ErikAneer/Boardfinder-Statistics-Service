@@ -1,15 +1,15 @@
 package Boardfinder.stats.Event;
 
 import Boardfinder.stats.Domain.BoardSearched;
-import Boardfinder.stats.Event.BoardSearchedEvent;
 import lombok.extern.slf4j.Slf4j;
 import Boardfinder.stats.Service.BoardSearchedService;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
 
 /**
+ * Event consumer class that receives events via a RabbitMQ queue and saves the
+ * received events to the database.
  *
  * @author Erik
  */
@@ -23,6 +23,10 @@ public class BoardSearchedEventConsumer {
         this.boardSearchedService = boardSearchedService;
     }
 
+    /*
+    * Listens to the RabbitMQ queue to receive events from the Boardfinder service containing information about boards searched.
+     *  Calls the boardDisplayedService to store the incoming event to the database. 
+     */
     @RabbitListener(queues = "${boardsearched.queue}")
     void handleBoardSearched(final BoardSearchedEvent event) {
         log.info("Received sent board search: {}");
@@ -36,7 +40,5 @@ public class BoardSearchedEventConsumer {
             log.error("Error when trying to processe the save of the search.");
             throw new AmqpRejectAndDontRequeueException(e);
         }
-
     }
-
 }

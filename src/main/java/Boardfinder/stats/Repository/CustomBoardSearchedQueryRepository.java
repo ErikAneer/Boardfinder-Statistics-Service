@@ -1,5 +1,5 @@
 /*
-
+    Repository class for creation of dynamic queries 
  */
 package Boardfinder.stats.Repository;
 
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  * @author Erik
  */
 @Repository
-public class CustomBoardSearchedQueryRepository { //implements CustomBoardSearchedQueryRepository
+public class CustomBoardSearchedQueryRepository {
     
     @PersistenceContext
    private EntityManager em;

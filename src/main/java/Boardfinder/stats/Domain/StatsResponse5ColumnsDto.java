@@ -1,15 +1,14 @@
 
-/*
-
- */
 package Boardfinder.stats.Domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
 /**
- *
+ * Data transfer object to keep the following fetched board data from the database:
+ * board id, brand name, model name, gender, bend name, total count displayed and percentage of all displayed boards. 
  * @author Erik
  */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
