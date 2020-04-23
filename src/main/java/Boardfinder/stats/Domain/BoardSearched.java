@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,9 +28,7 @@ public class BoardSearched implements Serializable {
     private final static long serialVersionUID = 1L;
 
     @Id
-    @SequenceGenerator(name = "boardsearched_s_generator", sequenceName = "boardsearched_s",
-            initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "boardsearched_s_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     private String gender;

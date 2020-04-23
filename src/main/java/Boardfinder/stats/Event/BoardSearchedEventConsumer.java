@@ -1,8 +1,10 @@
 package Boardfinder.stats.Event;
 
 import Boardfinder.stats.Domain.BoardSearched;
-import lombok.extern.slf4j.Slf4j;
 import Boardfinder.stats.Service.BoardSearchedService;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BoardSearchedEventConsumer {
 
-    private BoardSearchedService boardSearchedService;
+    private final BoardSearchedService boardSearchedService;
 
     BoardSearchedEventConsumer(final BoardSearchedService boardSearchedService) {
         this.boardSearchedService = boardSearchedService;

@@ -2,8 +2,8 @@ package Boardfinder.stats.Service;
 
 import Boardfinder.stats.Domain.BoardSearched;
 import Boardfinder.stats.Domain.StatsResponseDtoForClient;
-import Boardfinder.stats.Repository.BoardSearchedRepository;
-import Boardfinder.stats.Repository.CustomBoardSearchedQueryRepository;
+import Boardfinder.stats.Repository.Stats.BoardSearchedRepository;
+import Boardfinder.stats.Repository.Stats.CustomBoardSearchedQueryRepository;
 import Boardfinder.stats.Util.ResponseMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

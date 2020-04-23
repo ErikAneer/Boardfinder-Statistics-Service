@@ -1,7 +1,7 @@
 /*
     Repository class for creation of dynamic queries 
  */
-package Boardfinder.stats.Repository;
+package Boardfinder.stats.Repository.Stats;
 
 import Boardfinder.stats.Domain.DbResponse2Columns;
 import java.text.MessageFormat;

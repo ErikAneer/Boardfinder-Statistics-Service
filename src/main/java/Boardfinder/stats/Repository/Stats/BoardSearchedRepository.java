@@ -1,4 +1,4 @@
-package Boardfinder.stats.Repository;
+package Boardfinder.stats.Repository.Stats;
 
 import Boardfinder.stats.Domain.BoardSearched;
 import org.springframework.data.jpa.repository.JpaRepository;

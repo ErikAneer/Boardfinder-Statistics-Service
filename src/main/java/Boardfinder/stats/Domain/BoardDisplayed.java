@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,9 +26,7 @@ public class BoardDisplayed implements Serializable {
     private final static long serialVersionUID = 1L;
 
     @Id
-    @SequenceGenerator(name = "boardid_s_generator", sequenceName = "boardid_s",
-            initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "boardid_s_generator")
+   @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     
     private long displayedBoardId;

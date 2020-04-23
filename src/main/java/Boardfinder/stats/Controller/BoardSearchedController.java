@@ -7,16 +7,20 @@ import Boardfinder.stats.Service.BoardSearchedService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Controller class for stats routes in the stats service. 
+ * To access the routes here it is needed to have the role as admin. 
+ * 
  * @author Erik
  */
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 @RestController
-@RequestMapping("/stats")
+@RequestMapping("/boardsearches")
 public class BoardSearchedController {
 
     private BoardSearchedService boardSearchedService;
