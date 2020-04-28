@@ -1,8 +1,3 @@
-
-/** 
- *  Class for RabbitMQ queue configuration
- */
-
 package Boardfinder.stats.Configuration;
 
 

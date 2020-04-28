@@ -2,9 +2,7 @@
 package Boardfinder.stats.Domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import java.io.Serializable;
-import org.springframework.stereotype.Component;
 
 /**
  * Data transfer object to keep the following fetched board data from the database:

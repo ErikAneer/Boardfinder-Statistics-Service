@@ -31,7 +31,7 @@ public class BoardSearchedEventConsumer {
      */
     @RabbitListener(queues = "${boardsearched.queue}")
     void handleBoardSearched(final BoardSearchedEvent event) {
-        log.info("Received sent board search: {}");
+        log.info("Received sent board search");
 
         try {
             boardSearchedService.save(new BoardSearched(

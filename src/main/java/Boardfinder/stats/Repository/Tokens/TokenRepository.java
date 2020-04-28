@@ -1,4 +1,3 @@
-
 package Boardfinder.stats.Repository.Tokens;
 
 import java.nio.file.AccessDeniedException;
@@ -12,40 +11,43 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 /**
- * Custom repository class for ActiveToken entity class 
- * to handle repository operations not done in the ActiveTokeb repository interface. 
+ * Custom repository class for ActiveToken entity class to handle repository
+ * operations not done in the ActiveTokeb repository interface.
+ *
  * @author Erik
  */
 @Repository
 public class TokenRepository {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TokenRepository.class);
-    
+
     @PersistenceContext
-   private EntityManager em;
-    
-     /**
-     * Gets the id of an active token by the token as String. 
-     * Returns the id of the acrtive token or throws an AccessDeniedException if the token does not exist as it mean the token has been revoked. 
+    private EntityManager em;
+
+    /**
+     * Gets the id of an active token by the token as String. Returns the id of
+     * the acrtive token or throws an AccessDeniedException if the token does
+     * not exist as it mean the token has been revoked.
+     *
      * @param token as String
      * @return
-     * @throws AccessDeniedException 
+     * @throws AccessDeniedException
      */
     public Long getActiveTokenIdByToken(String token) throws AccessDeniedException {
         LOGGER.info("TokenRepository.getActiveTokenIdByToken called");
         try {
-        Query jpqlQuery = em.createQuery("SELECT a.id FROM ActiveToken a WHERE a.token = :token");
-        jpqlQuery.setParameter("token", token);
-        return (Long) jpqlQuery.getSingleResult();
+            Query jpqlQuery = em.createQuery("SELECT a.id FROM ActiveToken a WHERE a.token = :token");
+            jpqlQuery.setParameter("token", token);
+            return (Long) jpqlQuery.getSingleResult();
+        } catch (Exception e) {
+            throw new AccessDeniedException("Valid token does not exist");
         }
-          catch (Exception e) {
-             throw new AccessDeniedException("Valid token does not exist");
-        }
-        
+
     }
-    
+
     /**
      * Updates the timeStamp for an Active Token to extend it's validity.
+     *
      * @param timeNow as LocalDateTime
      * @param id as Long
      * @return boolean
@@ -60,8 +62,9 @@ public class TokenRepository {
                     .executeUpdate();
             return true;
         } catch (Exception e) {
+            LOGGER.info("TokenRepository.setTimeStampLastUpdatedByToken failed to update timestamp.");
             return false;
         }
     }
-     
+
 }

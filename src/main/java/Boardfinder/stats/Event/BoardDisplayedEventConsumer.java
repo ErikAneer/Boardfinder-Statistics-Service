@@ -30,12 +30,11 @@ public class BoardDisplayedEventConsumer {
      */
     @RabbitListener(queues = "${boarddisplayed.queue}")
     void handleBoardSearched(final BoardDisplayedEvent event) {
-        log.info("Received sent board Id: {}");
-
+        log.info("Received sent board Id: " + event.getDisplayedBoardId());
         try {
             boardDisplayedService.save(new BoardDisplayed(event.getDisplayedBoardId(), event.getModel(), event.getBrand(), event.getGender(), event.getBend()));
         } catch (final Exception e) {
-            log.error("Error when trying to processe the save of the search.");
+            log.error("Error when trying to processe the save the id " + event.getDisplayedBoardId());
             throw new AmqpRejectAndDontRequeueException(e);
         }
     }

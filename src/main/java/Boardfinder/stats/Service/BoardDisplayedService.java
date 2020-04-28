@@ -1,11 +1,12 @@
 package Boardfinder.stats.Service;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
-import Boardfinder.stats.Domain.DBResponseDisplayedBoard5Columns;
 import Boardfinder.stats.Domain.StatsResponseDtoForClient;
 import Boardfinder.stats.Repository.Stats.BoardDisplayedRepository;
 import Boardfinder.stats.Util.ResponseMapper;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,3 @@
-/*
-
- */
 package Boardfinder.stats.Repository.Tokens;
 
 import Boardfinder.stats.Domain.ActiveToken;
@@ -14,5 +11,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ActiveTokensRepository  extends JpaRepository<ActiveToken, Long> {
 
+        /**
+         * Deteles an ActiveToken by the token String. 
+         * @param token
+         * @return 
+         */
         boolean deleteActiveTokenByToken(String token);
 }

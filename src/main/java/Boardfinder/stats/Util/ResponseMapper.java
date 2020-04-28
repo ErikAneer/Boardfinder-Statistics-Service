@@ -6,9 +6,10 @@ import Boardfinder.stats.Domain.DbResponse2Columns;
 import Boardfinder.stats.Domain.StatsResponse5ColumnsDto;
 import Boardfinder.stats.Domain.StatsResponseDto;
 import Boardfinder.stats.Domain.StatsResponseDtoForClient;
-import java.text.DecimalFormat;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 /**

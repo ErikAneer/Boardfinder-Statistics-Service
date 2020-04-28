@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Controller class for promotion routes in the stats service. 
+ * Controller class for promotion paths in the stats service. 
  * Open controller class. 
  * @author Erik
  */
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/promotion")
 public class PromotionController {
     
-    private BoardDisplayedService boardDisplayedService;
+    private final BoardDisplayedService boardDisplayedService;
 
     @Autowired
     public PromotionController(BoardDisplayedService boardDisplayedService) {

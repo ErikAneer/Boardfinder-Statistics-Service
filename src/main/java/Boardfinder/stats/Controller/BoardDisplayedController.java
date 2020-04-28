@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Controller class for displayedboards routes in the stats service. 
+ * Controller class for displayedboards paths in the stats service.
+ * Caller has to have a token with 'ROLE_ADMIN' to be able to access the class.
  * @author Erik
  */
 @PreAuthorize("hasRole('ROLE_ADMIN')")

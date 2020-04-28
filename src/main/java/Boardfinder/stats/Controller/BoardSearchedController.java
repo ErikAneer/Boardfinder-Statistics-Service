@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Controller class for stats routes in the stats service. 
- * To access the routes here it is needed to have the role as admin. 
- * 
+ * Controller class for boardsearches paths in the stats service.
+ * Caller has to have a token with 'ROLE_ADMIN' to be able to access the class.
  * @author Erik
  */
 @PreAuthorize("hasRole('ROLE_ADMIN')")
