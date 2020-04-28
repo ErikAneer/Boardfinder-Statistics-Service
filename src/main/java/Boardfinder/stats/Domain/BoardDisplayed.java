@@ -1,6 +1,4 @@
-/*
-    Object to store in database with info about the board shown in Boardfinder.
- */
+
 package Boardfinder.stats.Domain;
 
 import java.io.Serializable;
@@ -8,13 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- *
+ * Entity class  to store in database with info about the board shown in Boardfinder.
  * @author Erik
  */
 
@@ -27,9 +24,7 @@ public class BoardDisplayed implements Serializable {
     private final static long serialVersionUID = 1L;
 
     @Id
-    @SequenceGenerator(name = "boardid_s_generator", sequenceName = "boardid_s",
-            initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "boardid_s_generator")
+   @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     
     private long displayedBoardId;
@@ -45,6 +40,4 @@ public class BoardDisplayed implements Serializable {
         this.gender = gender;
         this.bend = bend;
     }
-    
-
 }

@@ -1,17 +1,13 @@
-/*
 
- */
 package Boardfinder.stats.Domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Value;
 
 /**
- *
+ * Generic data transfer object class to keep a list of stats specifications along wih the total count for the kept stats specifications.  
  * @author Erik
  */
-
 public class StatsResponseDtoForClient {
     
         Long totalCount;

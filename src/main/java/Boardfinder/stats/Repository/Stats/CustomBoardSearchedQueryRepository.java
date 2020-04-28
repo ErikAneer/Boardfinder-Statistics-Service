@@ -1,7 +1,4 @@
-/*
-
- */
-package Boardfinder.stats.Repository;
+package Boardfinder.stats.Repository.Stats;
 
 import Boardfinder.stats.Domain.DbResponse2Columns;
 import java.text.MessageFormat;
@@ -12,11 +9,11 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Repository class for creation of dynamic queries 
  * @author Erik
  */
 @Repository
-public class CustomBoardSearchedQueryRepository { //implements CustomBoardSearchedQueryRepository
+public class CustomBoardSearchedQueryRepository {
     
     @PersistenceContext
    private EntityManager em;

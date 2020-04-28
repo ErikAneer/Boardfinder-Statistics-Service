@@ -1,6 +1,4 @@
-/*
 
- */
 package Boardfinder.stats.Domain;
 
 import java.io.Serializable;
@@ -8,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity class to store in database with info about the board search parameters from a board seacrh in the Boardfinder app.
+ * @author Erik
+ */
 @Entity
 @Getter
 @Setter
@@ -24,9 +23,7 @@ public class BoardSearched implements Serializable {
     private final static long serialVersionUID = 1L;
 
     @Id
-    @SequenceGenerator(name = "bend_s_generator", sequenceName = "bend_s",
-            initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bend_s_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     private String gender;

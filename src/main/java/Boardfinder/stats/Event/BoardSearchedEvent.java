@@ -5,7 +5,9 @@ import java.io.Serializable;
 import lombok.*;
 
 /**
- *
+ * Event class used to receive information of each board search in the app from the Boardfinder service. 
+ * The event class contains information about board gender, rider weight, shoesize, riderlevel, riderterrain, 
+ * preferred shape, flex and bend. 
  * @author Erik
  */
 @RequiredArgsConstructor
