@@ -1,4 +1,4 @@
-package Boardfinder.stats.Repository.Stats;
+package Boardfinder.stats.Repository;
 
 import Boardfinder.stats.Domain.BoardDisplayed;
 import Boardfinder.stats.Domain.DBResponseDisplayedBoard5Columns;

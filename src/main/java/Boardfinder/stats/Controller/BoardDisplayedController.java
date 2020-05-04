@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
  * Caller has to have a token with 'ROLE_ADMIN' to be able to access the class.
  * @author Erik
  */
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+//@PreAuthorize("hasRole('ROLE_ADMIN')")
 @RestController
 @RequestMapping("/displayedboards")
 public class BoardDisplayedController {
     
-    private BoardDisplayedService boardDisplayedService;
+    private final BoardDisplayedService boardDisplayedService;
 
     @Autowired
     public BoardDisplayedController(BoardDisplayedService boardDisplayedService) {
