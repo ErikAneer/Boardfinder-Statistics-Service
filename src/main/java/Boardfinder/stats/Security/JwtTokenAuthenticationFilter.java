@@ -14,8 +14,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import Boardfinder.stats.Service.ActiveTokenService;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import java.nio.file.AccessDeniedException;
@@ -28,11 +26,8 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtConfig jwtConfig;
 
-    private final ActiveTokenService tokenService;
-
-    public JwtTokenAuthenticationFilter(JwtConfig jwtConfig, ActiveTokenService tokenService) {
+    public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
-        this.tokenService = tokenService;
     }
 
     /**
@@ -65,11 +60,6 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
                 List<String> authorities = (List<String>) claims.get("authorities");
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                         username, null, authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
-
-                if (!tokenService.checkIfActiveToken(token)) {
-                    SecurityContextHolder.clearContext();
-                    throw new AccessDeniedException("Valid token does not exist");
-                }
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
 
